@@ -1,12 +1,7 @@
 defmodule Generator.Templates do
-  @moduledoc """
-  Templates factory
-  """
-  alias Generator.Templates.{Example}
+  @moduledoc false
+  alias Generator.Templates.Schemas.Template
 
-  def build(template, path, opts \\ []) do
-    case template do
-      :example -> Example.new(path, opts)
-    end
-  end
+  def build(path, template_name, opts \\ []),
+    do: Template.new(path, template_name, opts)
 end
