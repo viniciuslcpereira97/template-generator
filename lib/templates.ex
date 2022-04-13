@@ -1,7 +1,12 @@
 defmodule Generator.Templates do
-  @moduledoc false
+  @moduledoc """
+  Template Generator Templates context external API
+  """
   alias Generator.Templates.Schemas.Template
 
-  def build(path, template_name, opts \\ []),
-    do: Template.new(path, template_name, opts)
+  @doc """
+  Create a new Template
+  """
+  @spec build(String.t() | Path.t(), :atom) :: Template.t()
+  def build(path, template_name), do: Template.new(path, template_name)
 end

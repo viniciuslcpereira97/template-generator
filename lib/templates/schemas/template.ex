@@ -1,29 +1,36 @@
 defmodule Generator.Templates.Schemas.Template do
-  @moduledoc false
+  @moduledoc """
+  Schema representing a Template
+  """
   alias __MODULE__
 
-  defstruct name: nil,
-            new_path: nil,
-            template: nil,
+  defstruct new_path: nil,
             template_path: nil
 
-  def new(path, template_name, opts \\ []) do
+  @type t :: %Template{
+          new_path: Path.t(),
+          template_path: Path.t()
+        }
+
+  @doc """
+  Create a new Template
+  """
+  @spec new(String.t() | Path.t(), :atom) :: Template.t()
+  def new(path, template_name) do
     template = template(template_name)
 
     %Template{
-      name: opts[:name] || Path.basename(path),
-      template: template,
       new_path: Path.expand(path),
       template_path: template_path(template)
     }
   end
 
-  def template(name) do
+  defp template(name) do
     :generator
     |> Application.get_env(:templates)
     |> Access.get(name)
   end
 
-  def template_path(template),
+  defp template_path(template),
     do: Path.join(Application.get_env(:generator, :templates_dir), template)
 end
