@@ -6,10 +6,11 @@ defmodule Generator.MixProject do
       app: :generator,
       package: package(),
       description: description(),
-      version: "0.1.2",
+      version: "0.1.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
       config_path: "./config/config.exs",
+      source_url: "https://github.com/viniciuslcpereira97/template-generator",
       docs: docs(),
       deps: deps()
     ]
