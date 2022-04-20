@@ -1,5 +1,7 @@
 defmodule Generator.Path.Adapters.PathCreator do
-  @moduledoc false
+  @moduledoc """
+  Project template path creator
+  """
   import Mix.Generator
 
   alias Generator.Path.Schemas.{
@@ -7,6 +9,9 @@ defmodule Generator.Path.Adapters.PathCreator do
     TemplateFile
   }
 
+  @doc """
+  Creates all paths recursively for the given files and directories tree
+  """
   @spec create(TemplateDirectory.t()) :: :ok
   def create(%TemplateDirectory{childs: childs, to_path: to_path} = directory) do
     create_path(directory)

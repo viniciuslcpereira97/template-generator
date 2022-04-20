@@ -1,11 +1,13 @@
 defmodule Generator.Template.Adapters.Template do
-  @moduledoc false
+  @moduledoc """
+  Template resolutions
+  """
   alias Generator.Template.Schemas.Template
 
   @doc """
   Build template struct with given template name and project path.
   """
-  @spec build(String.t() | atom, String.t()) :: Template.t()
+  @spec build(atom, Path.t()) :: Template.t()
   def build(template_name, project_path) do
     template_path =
       template_name

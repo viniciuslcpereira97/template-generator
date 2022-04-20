@@ -1,12 +1,20 @@
 defmodule Generator do
-  @moduledoc false
+  @moduledoc """
+  Generator task entrypoint
 
-  alias Generator.{Paths, Templates, Projects}
+  This module centralize all steps required to create a new project based on the given template
+  """
+
+  alias Generator.{
+    Paths,
+    Templates,
+    Projects
+  }
 
   @doc """
-  Generate a new project based on template
+  Generates a new project based on template
   """
-  @spec generate(String.t() | Path.t(), atom | String.t()) :: :ok
+  @spec generate(Path.t(), atom | String.t()) :: :ok
   def generate(path, template) when is_atom(template) do
     path
     |> Projects.new(template)

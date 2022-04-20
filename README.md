@@ -1,4 +1,4 @@
-# Generator
+# Template Generator
 
 Elixir project templates generation.
 
