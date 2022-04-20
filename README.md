@@ -1,27 +1,147 @@
 # Generator
 
-**TODO: Add description**
+Elixir project templates generation.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `generator` to your list of dependencies in `mix.exs`:
+### Github
 
-```elixir
-def deps do
-  [
-    {:generator, "~> 0.1.0"}
-  ]
-end
+*Latest*
+```sh
+> mix archive.install github viniciuslcpereira97/template-generator
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/generator](https://hexdocs.pm/generator).
+*Specific branch*
+```sh
+> mix archive.install github viniciuslcpereira97/template-generator branch $BRANCH
+```
 
-## How to use
-```elixir
-:example
-|> Generator.Templates.build("test_template")
-|> Generator.generate()
+*Specific version*
+```sh
+> mix archive.install github viniciuslcpereira97/template-generator tag $RELEASE_TAG
+```
+
+### Hex
+```sh
+> mix archive.install viniciuslcpereira97/template-generator
+```
+
+## Configure
+
+### Example template folder structure
+```
+.
+└── example
+    ├── schemas
+    │ └── example.ex
+    └── services
+        ├── example.ex
+        └── user
+            └── user.ex
+```
+
+Set your templates directory's path in your `config.exs`.
+
+```ex
+config :generator,
+  templates_dir: "./templates",
+  templates: [
+    my_awesome_template: "example"
+  ]
+```
+
+`templates_dir`: Directory with all available templates
+`templates`: the key is an alias for your template and the value is the template folder name found at your `templates_dir`
+
+
+## Usage
+
+To create a new project based on an template you should run the following command:
+
+```sh
+> mix generator.new ./apps/my-awesome-new-folder --template=my_awesome_template
+```
+
+## Results
+
+### Project folder structure before running the task
+```
+.
+├── generator.ex
+├── mix
+│ └── tasks
+│     └── generator.new.ex
+├── path
+│ ├── adapters
+│ │ ├── git_resolver.ex
+│ │ ├── json_resolver.ex
+│ │ ├── local_resolver.ex
+│ │ ├── path_creator.ex
+│ │ ├── path_resolver.ex
+│ │ ├── template_directory.ex
+│ │ └── template_file.ex
+│ ├── logic
+│ └── schemas
+│     ├── template_directory.ex
+│     └── template_file.ex
+├── paths.ex
+├── project
+│ ├── adapters
+│ │ └── project.ex
+│ ├── logic
+│ └── schemas
+│     └── project.ex
+├── projects.ex
+├── template
+│ ├── adapters
+│ │ └── template.ex
+│ ├── logic
+│ └── schemas
+│     └── template.ex
+└── templates.ex
+
+```
+
+### Project folder structure after running the task
+```
+.
+├── generator.ex
+├── mix
+│ └── tasks
+│     └── generator.new.ex
+├── my-awesome-new-folder
+│ ├── schemas
+│ │ └── example.ex
+│ └── services
+│     ├── example.ex
+│     └── user
+│         └── user.ex
+├── path
+│ ├── adapters
+│ │ ├── git_resolver.ex
+│ │ ├── json_resolver.ex
+│ │ ├── local_resolver.ex
+│ │ ├── path_creator.ex
+│ │ ├── path_resolver.ex
+│ │ ├── template_directory.ex
+│ │ └── template_file.ex
+│ ├── logic
+│ └── schemas
+│     ├── template_directory.ex
+│     └── template_file.ex
+├── paths.ex
+├── project
+│ ├── adapters
+│ │ └── project.ex
+│ ├── logic
+│ └── schemas
+│     └── project.ex
+├── projects.ex
+├── template
+│ ├── adapters
+│ │ └── template.ex
+│ ├── logic
+│ └── schemas
+│     └── template.ex
+└── templates.ex
 ```
