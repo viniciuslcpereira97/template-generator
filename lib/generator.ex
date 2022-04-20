@@ -1,7 +1,7 @@
 defmodule Generator do
   @moduledoc false
 
-  alias Generator.{Paths, Templates}
+  alias Generator.{Paths, Templates, Projects}
 
   @doc """
   Generate a new project based on template
@@ -9,9 +9,10 @@ defmodule Generator do
   @spec generate(String.t() | Path.t(), atom | String.t()) :: :ok
   def generate(path, template) when is_atom(template) do
     path
-    |> Templates.build(template)
-    |> Paths.build_for_template()
-    |> Paths.create()
+    |> Projects.new(template)
+    |> Templates.build()
+    |> Paths.resolve_template_paths()
+    |> Paths.create_from_template()
   end
 
   def generate(path, template) when is_bitstring(template),

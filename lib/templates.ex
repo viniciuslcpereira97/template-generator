@@ -2,11 +2,12 @@ defmodule Generator.Templates do
   @moduledoc """
   Template Generator Templates context external API
   """
-  alias Generator.Templates.Schemas.Template
+  alias Generator.Template.Adapters.Template
 
   @doc """
-  Create a new Template
+  Build template info for an project
   """
-  @spec build(String.t() | Path.t(), :atom) :: Template.t()
-  def build(path, template_name), do: Template.new(path, template_name)
+  @spec build(struct) :: Template.t()
+  def build(%{template: template_name, path: project_path} = _project),
+    do: Template.build(template_name, project_path)
 end
