@@ -2,6 +2,8 @@ defmodule Generator.Path.Adapters.LocalResolver do
   @moduledoc """
   Resolves paths for local template option
   """
+  alias Generator.Path.Schemas.TemplateDirectory, as: TemplateDirectorySchema
+
   alias Generator.Path.Adapters.{
     TemplateDirectory,
     TemplateFile
@@ -10,7 +12,7 @@ defmodule Generator.Path.Adapters.LocalResolver do
   @doc """
   Resolves all paths for the given local project template
   """
-  @spec resolve(Path.t(), Path.t()) :: TemplateDirectory.t()
+  @spec resolve(Path.t(), Path.t()) :: TemplateDirectorySchema.t()
   def resolve(template_path, project_path) do
     project_directories = resolve_paths(template_path, File.ls!(template_path), [])
     TemplateDirectory.build(project_path, project_path, project_directories)

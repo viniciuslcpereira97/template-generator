@@ -6,7 +6,7 @@ defmodule Generator.MixProject do
       app: :generator,
       package: package(),
       description: description(),
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
       config_path: "./config/config.exs",
@@ -22,8 +22,8 @@ defmodule Generator.MixProject do
 
   def package do
     [
-      name: "Template Generator",
-      files: ~w(lib mix.exs README* .formatter.exs),
+      name: "template_generator",
+      files: ~w(lib doc mix.exs README* .formatter.exs),
       links: %{"github" => "https://github.com/viniciuslcpereira97/template-generator"},
       licenses: ["Apache-2.0"]
     ]
