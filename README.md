@@ -2,6 +2,10 @@
 
 Elixir project templates generation.
 
+## Docs
+
+- [PTBR](https://github.com/viniciuslcpereira97/template-generator/blob/main/README_pt_BR.md)
+
 ## Installation
 
 ### Github
@@ -23,7 +27,7 @@ Elixir project templates generation.
 
 ### Hex
 ```sh
-> mix archive.install viniciuslcpereira97/template-generator
+> mix archive.install hex template_generator
 ```
 
 ## Configure

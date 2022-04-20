@@ -2,6 +2,10 @@
 
 Projeto em Elixir para gerar projetos a partir de templates.
 
+## Docs
+
+- [EN](https://github.com/viniciuslcpereira97/template-generator/blob/main/README.md)
+
 ## Instalação
 
 ### Github
@@ -23,7 +27,7 @@ Projeto em Elixir para gerar projetos a partir de templates.
 
 ### Hex
 ```sh
-> mix archive.install viniciuslcpereira97/template-generator
+> mix archive.install hex template_generator
 ```
 
 ## Configuração

@@ -3,7 +3,7 @@ defmodule Generator.MixProject do
 
   def project do
     [
-      app: :generator,
+      app: :template_generator,
       package: package(),
       description: description(),
       version: "0.1.0",
@@ -33,7 +33,7 @@ defmodule Generator.MixProject do
 
   def docs do
     [
-      main: "Template Generator",
+      main: "template_generator",
       extras: ["README.md", "README_pt_BR.md"]
     ]
   end

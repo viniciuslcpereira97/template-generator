@@ -30,3 +30,5 @@ generator-*.tar
 
 # Testing generated template
 ./example/
+
+tmp*
