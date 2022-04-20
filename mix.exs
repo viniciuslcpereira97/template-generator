@@ -6,10 +6,11 @@ defmodule Generator.MixProject do
       app: :generator,
       package: package(),
       description: description(),
-      version: "0.1.1",
+      version: "0.1.2",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
       config_path: "./config/config.exs",
+      docs: docs(),
       deps: deps()
     ]
   end
