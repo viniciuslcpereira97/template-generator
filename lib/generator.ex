@@ -25,4 +25,13 @@ defmodule Generator do
 
   def generate(path, template) when is_bitstring(template),
     do: generate(path, String.to_atom(template))
+
+  @doc """
+  """
+  @spec load_templates :: :ok
+  def load_templates() do
+    :generator
+    |> Application.get_env(:templates)
+    |> Templates.load_external()
+  end
 end
